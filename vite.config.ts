@@ -7,7 +7,7 @@ import { defineConfig, loadEnv } from "vite";
 const env = loadEnv(process.env.NODE_ENV as string, process.cwd(), "VITE_");
 
 export default defineConfig({
-  base: env.VITE_PRERENDER ? "/Web-Osu-Mania/" : "/",
+  base: "/jo/",
   server: {
     port: 3000,
   },
@@ -15,7 +15,7 @@ export default defineConfig({
     cloudflare({ viteEnvironment: { name: "ssr" } }),
     tanstackStart({
       prerender: {
-        enabled: env.VITE_PRERENDER === "true",
+        enabled: true,
         crawlLinks: false,
       },
     }),
